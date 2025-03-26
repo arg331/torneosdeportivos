@@ -39,4 +39,8 @@ class TorneoTest {
 
         assertThrows(IllegalArgumentException.class, () -> torneo.registrarEquipo(equipo));
     }
+
+    void testDeporte(){
+        
+    }
 }
