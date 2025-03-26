@@ -58,13 +58,5 @@ class JugadorTest {
   else if (edad > 20 && !jugador.getCategoria().equals("Absoluta")) throw e;
 
  }
-/* private String determinarCategoria(int edad) {
-        if (edad < 12) return "Infantil";
-        else if (edad < 15) return "Cadete";
-        else if (edad < 18) return "Juvenil";
-        else if (edad < 21) return "Junior";
-        else return "Absoluta";
-    } */
-
 
 }
