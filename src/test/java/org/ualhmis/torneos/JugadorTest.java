@@ -1,6 +1,7 @@
 package org.ualhmis.torneos;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestClassOrder;
 import java.time.LocalDate;
 
 // Restricciones en los equipos (jugadores de la misma categoría y modalidad)
@@ -31,4 +32,39 @@ class JugadorTest {
         assertThrows(IllegalArgumentException.class, () -> new Jugador("Juan", "", LocalDate.of(2010, 1, 1)));
         assertThrows(IllegalArgumentException.class, () -> new Jugador("Juan", "Masculino", null));
     }
+    
+    @Test
+/*
+ * testNombre
+ */
+    void testNombre(Jugador jugador) {
+        if (jugador.getNombre().equals(null)) throw new IllegalArgumentException("Falta nombre");
+    }
+ @Test
+ void testGenero(Jugador jugador){
+    if (!jugador.getGenero().equals("femenino") && !jugador.getGenero().equals("masculino") ) throw new IllegalArgumentException("Género no válido");
+ }
+ void testFechaNacimiento(Jugador jugador) {
+    if (!jugador.getFechaNacimiento().equals(null)) throw new IllegalArgumentException("Fecha de nacimiento no válida");
+ }
+
+ void testCategoria(Jugador jugador){
+  int edad = jugador.calcularEdad();
+  IllegalArgumentException e = new IllegalArgumentException("Categoría errónea");
+  if (edad < 12 && !jugador.getCategoria().equals("Infantil")) throw e;
+  else if (edad < 15 && !jugador.getCategoria().equals("Cadete")) throw e;
+  else if (edad < 18 && !jugador.getCategoria().equals("Juvenil")) throw e;
+  else if (edad < 21 && !jugador.getCategoria().equals("Junior")) throw e;
+  else if (edad > 20 && !jugador.getCategoria().equals("Absoluta")) throw e;
+
+ }
+/* private String determinarCategoria(int edad) {
+        if (edad < 12) return "Infantil";
+        else if (edad < 15) return "Cadete";
+        else if (edad < 18) return "Juvenil";
+        else if (edad < 21) return "Junior";
+        else return "Absoluta";
+    } */
+
+
 }

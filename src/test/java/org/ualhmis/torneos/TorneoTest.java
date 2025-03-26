@@ -2,6 +2,7 @@ package org.ualhmis.torneos;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // Registro de partidos y validación de resultados
 
@@ -40,7 +41,11 @@ class TorneoTest {
         assertThrows(IllegalArgumentException.class, () -> torneo.registrarEquipo(equipo));
     }
 
-    void testDeporte(){
-        
+    /*
+     * Un Torneo debe de ser de un ndeporte en específico 
+     * Para ello, comprobamos si existe el deporte?
+     */
+    public void testDeporte( Torneo torneo){
+       if (torneo.getDeporte().equals(null)) throw new IllegalArgumentException("El torneo " + torneo.getNombre() + " debe de tener un deporte asociado");
     }
 }
